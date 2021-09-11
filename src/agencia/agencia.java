@@ -628,12 +628,22 @@ public class agencia {
 		
 
 		String respuesta = teclado.next();
-
+		//Arcaico pero funciona
+		boolean caso3 = respuesta.toLowerCase().equals("n") || respuesta.toLowerCase().equals("s");
+		
+		while(caso3!=true) {
+			System.out.println("Su respuesta no era valida por favor reingrese la respuesta.");
+			respuesta  = teclado.next();
+			caso3 = respuesta.toLowerCase().equals("n") || respuesta.toLowerCase().equals("s");
+			
+		}
+		
+		
 		while (!respuesta.equals("N") && !respuesta.equals("n") && !respuesta.equals("S") && !respuesta.equals("s")) {
 
 			System.out.print("La respuesta no es válida.  Por favor responda S por si o N por No: ");
 
-		}
+		} 
 
 		// acepta oferta
 		if (respuesta.equals("S") || respuesta.equals("s")) {
