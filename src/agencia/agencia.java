@@ -671,6 +671,7 @@ public class agencia {
 		
 		for(Usuario u : this.listaDeUsuarios) {
 			try {
+				//va a guardar los archivos de salida en la carpeta resumenes
 				file = "resumenes/" + u.getNombre() + ".txt";
 				salida = new PrintWriter(new FileWriter(file));
 				double precioTotal = 0;
