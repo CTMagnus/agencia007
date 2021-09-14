@@ -401,9 +401,10 @@ public class agencia {
 
 				// primero ofrece las de su gusto y luego las que no coinciden
 				filtroPreferenciaAventura(u);
+				filtroAtraccionAventura(u);
+				
 				filtroPreferenciaDegustacion(u);
 				filtroPreferenciPaisaje(u);
-				filtroAtraccionAventura(u);
 				filtroAtraccionDegustacion(u);
 				filtroAtraccionPaisaje(u);
 			}
@@ -412,9 +413,10 @@ public class agencia {
 
 				// primero ofrece las de su gusto y luego las que no coinciden
 				filtroPreferenciaDegustacion(u);
+				filtroAtraccionDegustacion(u);
+				
 				filtroPreferenciPaisaje(u);
 				filtroPreferenciaAventura(u);
-				filtroAtraccionDegustacion(u);
 				filtroAtraccionAventura(u);
 				filtroAtraccionPaisaje(u);
 			}
@@ -423,9 +425,10 @@ public class agencia {
 
 				// primero ofrece las de su gusto y luego las que no coinciden
 				filtroPreferenciPaisaje(u);
+				filtroAtraccionPaisaje(u);
+				
 				filtroPreferenciaDegustacion(u);
 				filtroPreferenciaAventura(u);
-				filtroAtraccionPaisaje(u);
 				filtroAtraccionAventura(u);
 				filtroAtraccionDegustacion(u);
 
