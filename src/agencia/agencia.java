@@ -671,7 +671,7 @@ public class agencia {
 		
 		for(Usuario u : this.listaDeUsuarios) {
 			try {
-				file = u.getNombre() + ".txt";
+				file = "resumenes/" + u.getNombre() + ".txt";
 				salida = new PrintWriter(new FileWriter(file));
 				double precioTotal = 0;
 				double tiempoTotal = 0;
@@ -701,15 +701,15 @@ public class agencia {
 		agencia a1 = new agencia();
 		a1.cargarDatos();
 		a1.filtroSugerencias();
-		//a1.emitirTicketDeUsuarios();
-		
+		a1.emitirTicketDeUsuarios();
+		/*
 		for (int i = 0; i < a1.listaDePromociones.size(); i++) {
 			System.out.println(a1.listaDePromociones.get(i).getNombre()+ "    " + 
 					a1.listaDePromociones.get(i).getTipoDeAtraccion() + "    "
 					+ a1.listaDePromociones.get(i).getPrecio() +
 					"    "+ a1.listaDePromociones.get(i).getTiempo() + "   " + 
 					a1.listaDePromociones.get(i).getAtraccionesConCupo());
-		}  /*
+		} */ /*
 		for (int i = 0; i < a1.listaDeAtracciones.size(); i++) {
 			System.out.println(a1.listaDeAtracciones.get(i).getNombre()+"   "+a1.listaDeAtracciones.get(i).getAtraccionConCupo());
 		} */
