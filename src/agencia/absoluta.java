@@ -5,7 +5,7 @@ public class absoluta extends Promocion {
 	
 	List<Atraccion> atraccionesContenidas = new ArrayList<Atraccion>();
 	private double costo;
-	protected boolean atraccionConCupo = true;
+	protected boolean atraccionConCupo;
 	private double tiempo;
 	
 	public absoluta( TipoDeDescuento tipoDescuento,  tipoDeProducto tipo, 
@@ -14,6 +14,8 @@ public class absoluta extends Promocion {
 		this.costo = costo;
 		atraccionesContenidas.addAll( lista);
 		this.setTiempo();
+		this.setAtraccionConCupo();
+		
 	}
 	
 public void setTiempo() {
@@ -55,22 +57,25 @@ public void setTiempo() {
 	}
 	
 	
-
-	public void reducirCupoPromocion(agencia a1) {
-		//lista de atracciones -- itere si es equals del nombre es el mismo:
-				// agarra atracccion de la lista -- DISMINUIR CUPO
-				// AGARRA ATRACCION DENTRO DE LAS PROMOS --DISMINUIR CUPO
-				// agarra la atraccion de la lista -- Chequea atraccion con cupo -- si cupo == 0 cabiar a falso
-				// agarra la atraccion en las promos -- 
-
-
-
-				for (int i = 0; i < atraccionesContenidas.size(); i++) {
-					int posicionDeLaAtraccion = a1.listaDeAtracciones.indexOf(atraccionesContenidas.get(i));
-					a1.listaDeAtracciones.get(posicionDeLaAtraccion).reducirCupo();
-					if(a1.listaDeAtracciones.get(posicionDeLaAtraccion).getAtraccionConCupo()!=true) this.atraccionConCupo = false;
-				}
-			}
-			
+	public void reducirCupoPromocion() {
 		
+		for (int i = 0; i < atraccionesContenidas.size(); i++) {
+			atraccionesContenidas.get(i).reducirCupo();
+		}
+		
+		this.setAtraccionConCupo();
+		
+		}
+	public void setAtraccionConCupo() {
+		int contador = 0;
+		for (int i=0; i < atraccionesContenidas.size();i++) {
+			if(atraccionesContenidas.get(i).atraccionConCupo==true) contador ++;
+		}
+		atraccionConCupo = contador == atraccionesContenidas.size();
+	}
+	
+	@Override
+	public boolean getAtraccionesConCupo() {
+		return this.atraccionConCupo;
+	}
 	}

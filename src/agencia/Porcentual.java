@@ -6,7 +6,7 @@ import java.util.List;
 public class Porcentual extends Promocion {
 	
 	List<Atraccion> atraccionesContenidas = new ArrayList<Atraccion>();
-	protected boolean atraccionConCupo = true;
+	protected boolean atraccionConCupo;
 	private double interesDeLaoferta;
 	private double tiempo;
 
@@ -16,6 +16,8 @@ public class Porcentual extends Promocion {
 		this.atraccionesContenidas = lista;
 		this.interesDeLaoferta = interesDeOferta/100;
 		this.setTiempo();
+		this.setAtraccionConCupo();
+		
 	}
 	
 	
@@ -61,22 +63,33 @@ public void setTiempo() {
 	public double getInteresDeLaoferta() {
 		return interesDeLaoferta;
 	}
-
-	//public void setInteresDeLaoferta(double interesDeLaoferta) {
-	//	this.interesDeLaoferta = interesDeLaoferta;
-	// }
-
-	public boolean getAtraccionConCupo() {
-		return atraccionConCupo;
+	
+	
+	
+	public void setAtraccionConCupo() {
+		int contador = 0;
+		for (int i=0; i < atraccionesContenidas.size();i++) {
+			if(atraccionesContenidas.get(i).atraccionConCupo==true) contador ++;
+		}
+		atraccionConCupo = contador == atraccionesContenidas.size();
 	}
 	
-	public void reducirCupoPromocion(agencia a1) {
+	
+	public void reducirCupoPromocion() {
+		
 		for (int i = 0; i < atraccionesContenidas.size(); i++) {
-			int posicionDeLaAtraccion = a1.listaDeAtracciones.indexOf(atraccionesContenidas.get(i));
-			a1.listaDeAtracciones.get(posicionDeLaAtraccion).reducirCupo();
-			if(a1.listaDeAtracciones.get(posicionDeLaAtraccion).getAtraccionConCupo()!=true) this.atraccionConCupo = false;
+			atraccionesContenidas.get(i).reducirCupo();
 		}
+		
+		this.setAtraccionConCupo();
+		
+		}
+	
+	@Override
+	public boolean getAtraccionesConCupo() {
+		return this.atraccionConCupo;
 	}
+	
 	
 	
 }

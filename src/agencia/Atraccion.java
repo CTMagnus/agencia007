@@ -21,6 +21,8 @@ public class Atraccion extends Producto {
 		this.precio = precio;
 		this.cupo = cupo;
 		this.tiempoNecesario = tiempoNecesario;
+		this.cupoDisponible = cupo;
+		this.comprobarCupo();
 	}
 	
 	
@@ -77,7 +79,7 @@ public class Atraccion extends Producto {
 	public void setTiempoNecesario(double tiempoNecesario) {
 		this.tiempoNecesario = tiempoNecesario;
 	}
-	@Override
+	
 	public boolean getAtraccionConCupo() {
 		return atraccionConCupo;
 	}
@@ -96,7 +98,7 @@ public class Atraccion extends Producto {
 	
 	@Override
 	public void reducirCupo() {
-		setCupo(getCupoDisponible()-1);
+		setCupoDisponible(getCupoDisponible()-1);
 		comprobarCupo();
 	}
 

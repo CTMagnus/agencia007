@@ -6,7 +6,7 @@ import java.util.Objects;
 public abstract  class Producto  implements Comparable<Producto>{
 	protected tipoDeProducto tipoDeProducto;
 	protected tipoDeAtraccion tipoDeAtraccion;
-	
+
 	public enum tipoDeProducto{
 		ATRACCION,PROMOCION
 	}
@@ -55,7 +55,6 @@ public abstract  class Producto  implements Comparable<Producto>{
 	
 	public double calcularCosto() {return 0;};
 	
-	public boolean getAtraccionConCupo() {return false;}
 
 	public abstract double getTiempo() ;
 	public double getPrecio() {
@@ -95,11 +94,5 @@ public abstract  class Producto  implements Comparable<Producto>{
 	public List<Producto> getAtr(){
 		return null;
 	}
-	
-
-
-
-
-
 }
 

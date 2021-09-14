@@ -311,9 +311,7 @@ public class agencia {
 		listaPromocionesAventuras = new ArrayList<Producto>();
 
 		for (Producto p : listaDePromociones) {
-			if ((p.tipoDeAtraccion.name().equals("AVENTURA")))
-				//System.out.println(p);
-					//&& (p.getCupo()>0))
+			if ((p.tipoDeAtraccion.name().equals("AVENTURA"))&& (p.getCupo()>0))
 			{
 				listaPromocionesAventuras.add((Promocion) p);
 				}
@@ -323,9 +321,9 @@ public class agencia {
 		// Mapa de Promociones de Paisaje
 		listaPromocionesPaisaje = new ArrayList<Promocion>();
 
-		for (Producto p : listaDePromociones) {
+		for (Promocion p : listaDePromociones) {
 			if ((p.tipoDeAtraccion.equals(tipoDeAtraccion.PAISAJE))
-					&& (p.getCupo()>0) 	) {
+					&& (p.getAtraccionesConCupo())	) {
 				listaPromocionesPaisaje.add((Promocion) p);
 			}
 		}
@@ -455,6 +453,7 @@ public class agencia {
 								u.restarDinero((int) cadaPromoPaisaje.getPrecio());
 								u.setTiempoDisponible(cadaPromoPaisaje.getTiempo());
 								u.setSugerenciasDiarias(cadaPromoPaisaje);
+								cadaPromoPaisaje.reducirCupo();
 
 								// Actualiza el cupo de las y atracciones
 								for (Atraccion a : cadaPromoPaisaje.getAtraccionesContenidas()) {
@@ -487,11 +486,7 @@ public class agencia {
 							u.setSugerenciasDiarias(cadaPromoDegustacion);
 
 							// Actualiza el cupo de las y atracciones
-							for (Atraccion a : cadaPromoDegustacion.getAtraccionesContenidas()) {
-								System.out.println("El cupo es de " +  a.getNombre() + " " + a.getCupoDisponible());
-								a.reducirCupo();
-								System.out.println("Es cupo restante de " +  a.getNombre() + " " + a.getCupoDisponible());
-							}
+							cadaPromoDegustacion.reducirCupo();
 						}
 					}
 			}
@@ -596,7 +591,7 @@ public class agencia {
 					u.setSugerenciasDiarias(a);
 
 					// Actualiza el cupo de las y atracciones
-					a.reducirCupo();
+					a.reducirCupo();;
 
 				}
 			}
@@ -612,7 +607,8 @@ public class agencia {
 			System.out.println("Bienvenido/a "+ u.getNombre() + " usted tiene un credito disponible de: "+ u.getMonedasDeOro());
 			System.out.println("Tiene un tiempo disponible de: "+ u.getTiempoDisponible() +" horas");
 			System.out.println("Dada su preferencia por atracciones del tipo: " + u.getPreferencia() );
-			System.out.println("Le sugerimos una PROMOCION:   " + p.getNombre() + ", que cuesta " + p.getPrecio());
+			System.out.println("Le sugerimos una PROMOCION:   " + p.getNombre() + ", que cuesta " + p.getPrecio() + " y tiempo " +
+			p.getTiempo());
 			
 			System.out.print( "Acepta la oferta?. Por favor responda S por si o N por No: ");
 		}
@@ -702,7 +698,19 @@ public class agencia {
 		agencia a1 = new agencia();
 		a1.cargarDatos();
 		a1.filtroSugerencias();
-		a1.emitirTicketDeUsuarios();
+		//a1.emitirTicketDeUsuarios();
+		/*
+		for (int i = 0; i < a1.listaDePromociones.size(); i++) {
+			System.out.println(a1.listaDePromociones.get(i).getNombre()+ "    " + 
+					a1.listaDePromociones.get(i).getTipoDeAtraccion() + "    "
+					+ a1.listaDePromociones.get(i).getPrecio() +
+					"    "+ a1.listaDePromociones.get(i).getTiempo() + "   " + 
+					a1.listaDePromociones.get(i).getAtraccionesConCupo());
+		} */ /*
+		for (int i = 0; i < a1.listaDeAtracciones.size(); i++) {
+			System.out.println(a1.listaDeAtracciones.get(i).getNombre()+"   "+a1.listaDeAtracciones.get(i).getAtraccionConCupo());
+		} */
+		//
 		//a1.listasDePromocionesPorTipoAtraccion();
 		//System.out.println(a1.listaPromocionesAventuras.toString());			
 	//	a1.mostrarPromos();

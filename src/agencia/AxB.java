@@ -5,9 +5,13 @@ import java.util.*;
 
 public class AxB extends Promocion {
 
-	List<Producto> atraccionesContenidas = new ArrayList<Producto>();
+	List<Atraccion> atraccionesContenidas = new ArrayList<Atraccion>();
 	
-	protected boolean atraccionConCupo = true;
+	public boolean isAtraccionConCupo() {
+		return atraccionConCupo;
+	}
+
+	protected boolean atraccionConCupo;
 	private double costo = 0;
 	private double tiempo;
 	private double descuento = 0;
@@ -17,17 +21,23 @@ public class AxB extends Promocion {
 		super(tipo, tipoAtraccion,nombre);
 		atraccionesContenidas.addAll(lista);
 		this.setTiempo();
+		this.setPrecio();
+		this.setAtraccionConCupo();
 		
 	}
-	
-	
+
 	@Override
 	public double getPrecio() {
 		
+		return costo;
+	}
+	
+	public void setPrecio() {
+		double acumulado = 0;
 		for (int i = 0; i < atraccionesContenidas.size()-1; i++) {
-			costo += atraccionesContenidas.get(i).getPrecio();
+			acumulado += atraccionesContenidas.get(i).getPrecio();
 		}
-		return this.costo;
+		this.costo = acumulado;
 	}
 	
 	public void setTiempo() {
@@ -46,18 +56,33 @@ public class AxB extends Promocion {
 		atraccionesContenidas.addAll(lista);
 	}
 	
-	public void reducirCupoPromocion(agencia a1) {
+	public void reducirCupoPromocion() {
+		
 		for (int i = 0; i < atraccionesContenidas.size(); i++) {
-			int posicionDeLaAtraccion = a1.listaDeAtracciones.indexOf(atraccionesContenidas.get(i));
-			a1.listaDeAtracciones.get(posicionDeLaAtraccion).reducirCupo();
-			if(a1.listaDeAtracciones.get(posicionDeLaAtraccion).getAtraccionConCupo()!=true) this.atraccionConCupo = false;
+			atraccionesContenidas.get(i).reducirCupo();
 		}
-	}
+		
+		this.setAtraccionConCupo();
+		
+		}
 	
 	@Override
 	public String toString() {
 		String retorno = this.getNombre() + " " + this.getPrecio() + " " + atraccionesContenidas;
 		return retorno;
+	}
+	
+	public void setAtraccionConCupo() {
+		int contador = 0;
+		for (int i=0; i < atraccionesContenidas.size();i++) {
+			if(atraccionesContenidas.get(i).atraccionConCupo==true) contador ++;
+		}
+		atraccionConCupo = contador == atraccionesContenidas.size();
+	}
+	
+	@Override
+	public boolean getAtraccionesConCupo() {
+		return this.atraccionConCupo;
 	}
 
 	

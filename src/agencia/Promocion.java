@@ -6,7 +6,6 @@ import java.util.*;
 public abstract class Promocion extends Producto {
 	
 	List<Atraccion> atraccionesContenidas = new ArrayList<Atraccion>();
-	public boolean atraccionConCupo = true;
 	String nombre;
 	
 	public Promocion(tipoDeProducto tipo, tipoDeAtraccion tipoAtraccion,String nombre) {
@@ -24,13 +23,7 @@ public abstract class Promocion extends Producto {
 	}
 	
 
-	public boolean isAtraccionConCupo() {
-		return atraccionConCupo;
-	}
-
-	public void setAtraccionConCupo(boolean atraccionConCupo) {
-		this.atraccionConCupo = atraccionConCupo;
-	}
+	
 	@Override
 	public String getNombre() {
 		return nombre;
@@ -48,12 +41,24 @@ public abstract class Promocion extends Producto {
 		
 		return datos;
 	}
-	
+	@Override
+	public int getCupo() {
+		
+		
+		int noNulo = 1;
+		for(Atraccion a: atraccionesContenidas) {
+			noNulo  *= 	a.getCupo();
+		}
+		return noNulo;
+	}
 		
 	@Override
 	public double getPrecio() {
 	
 		return 0;
+	}
+	
+	public boolean getAtraccionesConCupo() { return false;
 	}
 	
 	
