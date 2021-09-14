@@ -9,7 +9,7 @@ import agencia.Producto.*;
 
 
 public class agencia {
-	protected List<Usuario> listaDeUsuarios = new ArrayList<Usuario>();
+	public List<Usuario> listaDeUsuarios = new ArrayList<Usuario>();
 	public List<Atraccion> listaDeAtracciones = new ArrayList<Atraccion>();
 	public List<Promocion> listaDePromociones = new ArrayList<Promocion>();
 	public List<String> nombres = new ArrayList<String>();
@@ -29,7 +29,7 @@ public class agencia {
 	// Carga de archivos --------------------------------------------------------
 
 	@SuppressWarnings("unused")
-	private void cargarDatos() throws IOException {
+	public void cargarDatos() throws IOException {
 
 		this.LeeYcargaUsuarios("usuarios.txt");
 		this.LeeYcargaAtracciones("atracciones.txt");
@@ -386,7 +386,7 @@ public class agencia {
 	// Filtros
 	
 	// Recorre lista usuarios
-	private void filtroSugerencias() {
+	public void filtroSugerencias() {
 
 		this.mapaAtraccionPorNombre();
 		
@@ -697,7 +697,7 @@ public class agencia {
 
 		agencia a1 = new agencia();
 		a1.cargarDatos();
-		//a1.filtroSugerencias();
+		a1.filtroSugerencias();
 		//a1.emitirTicketDeUsuarios();
 		
 		for (int i = 0; i < a1.listaDePromociones.size(); i++) {

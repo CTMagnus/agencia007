@@ -16,8 +16,12 @@ public class AxB extends Promocion {
 	private double tiempo;
 	private double descuento = 0;
 	
-	public AxB(TipoDeDescuento tipoDescuento,  tipoDeProducto tipo, 
-			tipoDeAtraccion tipoAtraccion,String nombre,double costo, List<Atraccion> lista) {
+	public AxB(TipoDeDescuento tipoDescuento,  
+			tipoDeProducto tipo, 
+			tipoDeAtraccion tipoAtraccion,
+			String nombre,
+			double costo, 
+			List<Atraccion> lista) {
 		super(tipo, tipoAtraccion,nombre);
 		atraccionesContenidas.addAll(lista);
 		this.setTiempo();
