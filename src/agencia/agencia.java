@@ -13,7 +13,7 @@ public class agencia {
 	public List<Atraccion> listaDeAtracciones = new ArrayList<Atraccion>();
 	public List<Promocion> listaDePromociones = new ArrayList<Promocion>();
 	public List<String> nombres = new ArrayList<String>();
-	public ArrayList<Producto> listaPromocionesAventuras;
+	public ArrayList<Promocion> listaPromocionesAventuras;
 	public ArrayList<Promocion> listaPromocionesPaisaje;
 	public ArrayList<Promocion> listaPromocionesDegustacion;
 	private ArrayList<Atraccion> mapaAtraccionesAventuras;
@@ -308,10 +308,10 @@ public class agencia {
 	public void listasDePromocionesPorTipoAtraccion() {
 
 		// Mapa de Promociones de Aventuras
-		listaPromocionesAventuras = new ArrayList<Producto>();
+		listaPromocionesAventuras = new ArrayList<Promocion>();
 
-		for (Producto p : listaDePromociones) {
-			if ((p.tipoDeAtraccion.name().equals("AVENTURA"))&& (p.getCupo()>0))
+		for (Promocion p : listaDePromociones) {
+			if ((p.tipoDeAtraccion.name().equals("AVENTURA"))&& (p.getAtraccionesConCupo()))
 			{
 				listaPromocionesAventuras.add((Promocion) p);
 				}
@@ -330,9 +330,9 @@ public class agencia {
 		// Mapa de Degustacion
 		listaPromocionesDegustacion = new ArrayList<Promocion>();
 
-		for (Producto p : listaDePromociones) {
+		for (Promocion p : listaDePromociones) {
 			if (p.tipoDeAtraccion.equals(tipoDeAtraccion.DEGUSTACION)
-					&& (p.getCupo()>0)) {
+					&& (p.getAtraccionesConCupo())) {
 				listaPromocionesDegustacion.add((Promocion) p);
 			}
 		}
@@ -697,16 +697,16 @@ public class agencia {
 
 		agencia a1 = new agencia();
 		a1.cargarDatos();
-		a1.filtroSugerencias();
+		//a1.filtroSugerencias();
 		//a1.emitirTicketDeUsuarios();
-		/*
+		
 		for (int i = 0; i < a1.listaDePromociones.size(); i++) {
 			System.out.println(a1.listaDePromociones.get(i).getNombre()+ "    " + 
 					a1.listaDePromociones.get(i).getTipoDeAtraccion() + "    "
 					+ a1.listaDePromociones.get(i).getPrecio() +
 					"    "+ a1.listaDePromociones.get(i).getTiempo() + "   " + 
 					a1.listaDePromociones.get(i).getAtraccionesConCupo());
-		} */ /*
+		}  /*
 		for (int i = 0; i < a1.listaDeAtracciones.size(); i++) {
 			System.out.println(a1.listaDeAtracciones.get(i).getNombre()+"   "+a1.listaDeAtracciones.get(i).getAtraccionConCupo());
 		} */

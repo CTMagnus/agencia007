@@ -1,5 +1,5 @@
 absoluta,AVENTURA,abs1,25,ave1,ave2,ave3
-absoluta,PAISAJE,abs2PAISAJE,5,paisaje1,paisaje2,paisaje3
+absoluta,PAISAJE,abs2PAISAJE,5,paisaje16,paisaje2,paisaje3
 absoluta,DEGUSTACION,abs3,15,degus4,degus5
 absoluta,AVENTURA,absAVENTURA,2,ave3,ave4
 absoluta,AVENTURA,abs5,20,ave1,ave3
