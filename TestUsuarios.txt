@@ -1,0 +1,8 @@
+Primer TEST,50,12,paisaje
+Segundo  TEST,600,2,aventura
+Tercer  TEST,6,25,degustacion
+Cuarto  TEST,100,20,aventura
+Quinto TEST,30,12,paisaje
+Sexto TEST,80,18,degustacion
+TestPROMOSyATRACCIONESAll,12000,12000,paisaje
+TestMinimo,3,1,aventura

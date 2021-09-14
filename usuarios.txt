@@ -1,0 +1,12 @@
+Josefa,5,1,paisaje
+jose,10,100,aventura
+josefina,200,100,degustacion
+Antonio,200,5,aventura
+Lucas,300,100,paisaje
+Mica,8,5,degustacion
+joseR,38,2,aventura
+Juan,8,2,paisaje
+Jorgelina,11,25,degustacion
+Carlitos,60,20,aventura
+Lucas,30,27,paisaje
+Candela,80,16,degustacion
