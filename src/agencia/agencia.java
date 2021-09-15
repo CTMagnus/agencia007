@@ -24,8 +24,6 @@ public class agencia {
 	private List<absoluta> promocionesAbsoluta = new ArrayList<absoluta>();
 	private List<Porcentual> promocionesPorcentual = new ArrayList<Porcentual>();
 
-	// Diccionario de Atraciones--------------------------------------------------
-
 	// Carga de archivos --------------------------------------------------------
 
 	@SuppressWarnings("unused")
@@ -57,7 +55,6 @@ public class agencia {
 
 				// Crea la Atraccion con los datos de la línea de texto
 				tipoDeProducto tipoDeP = tipoDeProducto.ATRACCION;
-				// String tipoDeAtr = datos[0];
 				String nombre = datos[1];
 				int precio = Integer.parseInt(datos[2]);
 				int cupo = Integer.parseInt(datos[3]);
@@ -103,7 +100,7 @@ public class agencia {
 
 	public void LeeYcargaPromociones(String archivo) throws IOException {
 
-		// List<Promocion> listaDePromociones = new ArrayList<Promocion>();
+		
 		FileReader fr = null;
 		BufferedReader br = null;
 
@@ -208,7 +205,7 @@ public class agencia {
 
 				// Crea la Atraccion con los datos de la línea de texto
 				//
-				// tipoDeAtraccion preferencia)
+				// tipoDeAtraccion preferencia
 				String nombre = datos[0];
 				int dinero = Integer.parseInt(datos[1]);
 				double tiempoNecesario = Double.parseDouble(datos[2]);
@@ -703,27 +700,7 @@ public class agencia {
 		a1.cargarDatos();
 		a1.filtroSugerencias();
 		a1.emitirTicketDeUsuarios();
-		/*
-		for (int i = 0; i < a1.listaDePromociones.size(); i++) {
-			System.out.println(a1.listaDePromociones.get(i).getNombre()+ "    " + 
-					a1.listaDePromociones.get(i).getTipoDeAtraccion() + "    "
-					+ a1.listaDePromociones.get(i).getPrecio() +
-					"    "+ a1.listaDePromociones.get(i).getTiempo() + "   " + 
-					a1.listaDePromociones.get(i).getAtraccionesConCupo());
-		} */ /*
-		for (int i = 0; i < a1.listaDeAtracciones.size(); i++) {
-			System.out.println(a1.listaDeAtracciones.get(i).getNombre()+"   "+a1.listaDeAtracciones.get(i).getAtraccionConCupo());
-		} */
-		//
-		//a1.listasDePromocionesPorTipoAtraccion();
-		//System.out.println(a1.listaPromocionesAventuras.toString());			
-	//	a1.mostrarPromos();
-	//	a1.mapasPorAtraccionPorPrecio();
 		
-		
-		
-		
-	
 	}
 
 }
